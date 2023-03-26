@@ -1,6 +1,11 @@
 from fastapi import FastAPI
-from routes.contacts import contact;
+from routes.contacts_routes import contact;
+from docs import tags_metadata
 
-app = FastAPI()
+app = FastAPI(
+    title="FastAPI & Mongo CRUD",
+    description="this is a simple REST API using fastapi and mongodb",
+    version="0.0.1",
+    openapi_tags=tags_metadata)
 
 app.include_router(contact)
